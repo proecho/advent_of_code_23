@@ -38,3 +38,34 @@ export fn main() void = {
 		};
 	fmt::println(total)!;
 };
+
+fn identifyword(string:str,reverse:bool) int|void {
+	let reference = []; 
+		if(reverse == false){
+			reference = ["one", "two","three","four","five","six","seven", "eight","nine"];
+		}else {
+			reference = ["eno","owt","eerth","rouf","evif","xis","neves", "thgeit", "enin"];
+		};
+	let number = "";
+	let charecters = runes(string);
+	for(i=0u,i<9,i+=1){
+		if (number =! ""){
+			break;
+		};
+		let word = reference[i];
+		let wordletters = runes(word);
+		let j = 0;
+		for (k=0u, k<(charecters), k+=1){
+			let letter = wordletter[j];
+			if(letter =! charecter[k]){
+				j = 0;
+				continue;
+			};
+			if(j == len(wordletter)-1){
+				number =  word;
+				break;
+			}
+			j +=1;
+		};
+	};
+};
