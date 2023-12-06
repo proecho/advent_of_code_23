@@ -39,32 +39,34 @@ export fn main() void = {
 	fmt::println(total)!;
 };
 
-fn identifyword(string:str,reverse:bool) int|void {
-	let reference = []; 
+fn identifyword(string:str,reverse:bool) (int|void) = {
+	let reference:[9]str = ["eno","owt","eerth","rouf","evif","xis","neves", "thgie`", "enin"];
 		if(reverse == false){
 			reference = ["one", "two","three","four","five","six","seven", "eight","nine"];
-		}else {
-			reference = ["eno","owt","eerth","rouf","evif","xis","neves", "thgeit", "enin"];
-		};
+	};
 	let number = "";
-	let charecters = runes(string);
-	for(i=0u,i<9,i+=1){
-		if (number =! ""){
+	let position = len(string);
+	let charecters = string::runes(string);
+	for( let i=0u; i<9; i+=1){
+		if (!(number ==  "")){
 			break;
 		};
 		let word = reference[i];
-		let wordletters = runes(word);
+		let wordletters = string::runes(word);
 		let j = 0;
-		for (k=0u, k<(charecters), k+=1){
-			let letter = wordletter[j];
-			if(letter =! charecter[k]){
+		for (let k=0u;  k<(charecters); k+=1){
+			let letter = wordletters[j];
+			if(letter =! charecters[k]){
 				j = 0;
 				continue;
 			};
-			if(j == len(wordletter)-1){
+			if(j == len(wordletters)-1){
+				if(k<position){
 				number =  word;
+				position = k - j;
+				};
 				break;
-			}
+			};
 			j +=1;
 		};
 	};
